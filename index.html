@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yumi Empire - Cartographie</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     
     <style>
@@ -20,10 +20,10 @@
             overflow-x: hidden;
         }
 
-        /* BANDE GLOBALE : EFFET COULEUR ACIER / ALU BROSSE NETTEMENT PLUS CLAIR */
+        /* BANDE GLOBALE REHAUSSÉE ET ÉLARGIE POUR ACCUEILLIR LES 9 BULLES */
         .main-header {
             width: 100%;
-            padding: 22px 30px;
+            padding: 26px 30px; /* Élargissement de la bande */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -42,33 +42,34 @@
             opacity: 0.9;
         }
 
-        /* BLOC GAUCHE : TITRE AVEC EFFET INTERACTIF BLEU ÉLECTRIQUE */
+        /* BLOC GAUCHE : TYPOGRAPHIE BOOSTÉE ET GROSSIE POUR KAI-JI */
         .logo-container {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
             z-index: 2;
         }
         .brand-title {
             font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            font-size: 26px;
+            font-weight: 900; /* Version maximale */
+            font-size: 29px;  /* Écriture plus grosse et imposante */
             color: #ffffff;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            text-shadow: 0 0 8px rgba(255,255,255,0.3);
-            transition: all 0.3s ease;
+            text-shadow: 0 0 10px rgba(255,255,255,0.2);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             cursor: default;
         }
         .brand-title:hover {
             color: #00d2ff;
-            text-shadow: 0 0 15px rgba(0, 210, 255, 0.8), 0 0 30px rgba(0, 210, 255, 0.4);
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.9), 0 0 40px rgba(0, 210, 255, 0.5);
+            transform: scale(1.02);
         }
 
-        /* GRILLE DES RESEAUX AVEC CONTOUR ROUGE PERMANENT */
+        /* GRILLE DES 9 RÉSEAUX SOCIAUX CONTOUR ROUGE */
         .social-grid {
             display: flex;
-            gap: 8px;
+            gap: 7px;
             align-items: center;
         }
         .social-bubble {
@@ -87,8 +88,8 @@
         }
         
         .social-bubble svg {
-            width: 14px;
-            height: 14px;
+            width: 13px;
+            height: 13px;
             fill: #ffffff;
             transition: fill 0.25s ease;
         }
@@ -106,7 +107,7 @@
             fill: #111111;
         }
 
-        /* BLOC CENTRAL : BOUTONS INDIVIDUELS SÉPARÉS */
+        /* BLOC CENTRAL : MENU COMPLET */
         .nav-menu {
             display: flex;
             gap: 12px; 
@@ -136,7 +137,7 @@
             transform: translateY(-2px);
         }
 
-        /* BLOC DROITE : ACTIONNEURS */
+        /* BLOC DROITE : ACTIONNEURS & MENU UTILISATEUR COMPLET */
         .user-panel {
             display: flex;
             align-items: center;
@@ -156,8 +157,9 @@
         .user-profile-trigger {
             display: flex;
             align-items: center;
+            gap: 10px;
             background: #111111;
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
             border: 2px solid #ff0000;
             cursor: pointer;
@@ -176,9 +178,19 @@
             align-items: center;
             justify-content: center;
             color: #ffffff;
+            transition: color 0.3s ease;
         }
         .user-profile-trigger:hover .profile-avatar {
             color: #00d2ff;
+        }
+        .fa-chevron-down {
+            font-size: 11px;
+            color: #ffffff;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .user-profile-trigger:hover .fa-chevron-down {
+            color: #00d2ff;
+            transform: translateY(2px);
         }
     </style>
 </head>
@@ -192,6 +204,7 @@
                 <a href="#" class="social-bubble" title="YouTube"><i class="fab fa-youtube"></i></a>
                 <a href="#" class="social-bubble" title="TikTok"><i class="fab fa-tiktok"></i></a>
                 <a href="#" class="social-bubble" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-bubble" title="Snapchat"><i class="fab fa-snapchat-ghost"></i></a>
                 <a href="#" class="social-bubble" title="Pinterest"><i class="fab fa-pinterest"></i></a>
                 
                 <a href="#" class="social-bubble" title="X (Twitter)">
@@ -225,6 +238,7 @@
                 <div class="profile-avatar">
                     <i class="fas fa-user"></i>
                 </div>
+                <i class="fas fa-chevron-down"></i>
             </div>
         </div>
 
