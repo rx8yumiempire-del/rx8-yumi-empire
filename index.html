@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yumi Empire - Cartographie</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* RESET & BASE SYSTEM */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #0d0d0d;
+            font-family: 'Rajdhani', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* BANDEAU PRINCIPAL (ALU BROSSE SOMBRE & PROFONDEUR) */
+        .main-header {
+            width: 100%;
+            padding: 15px 30px;
+            display: flex;
+            align-content: center;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, #1a1a1a 0%, #121212 50%, #0a0a0a 100%);
+            border-bottom: 2px solid #262626;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 24px rgba(0,0,0,0.8);
+            position: relative;
+        }
+
+        /* EFFET DE STRUCTURE TEXTUREE ARRIERE-PLAN (ALU BROSSE/MICRO-RAYURES) */
+        .main-header::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(90deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 1px, transparent 1px, transparent 2px);
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        /* BLOC GAUCHE : LOGO / TEXTE & ANIMATION ULTRA-MODERNE */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 2;
+        }
+        .brand-title {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 24px;
+            color: #ffffff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-shadow: 0 0 10px rgba(255,255,255,0.1);
+            transition: color 0.4s ease, text-shadow 0.4s ease;
+            
+            /* ANIMATION D'APPARITION TYPE GLITCH/OUVERTURE */
+            animation: emerge 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            opacity: 0;
+            transform: translateY(-10px) scale(0.95);
+        }
+        /* EFFET SURVOL BLEU ELECTRIQUE CHIRURGICAL */
+        .brand-title:hover {
+            color: #00d2ff;
+            text-shadow: 0 0 15px rgba(0, 210, 255, 0.6), 0 0 30px rgba(0, 210, 255, 0.3);
+        }
+
+        /* BULLES RESEAUX SOCIAUX ENRICHIES */
+        .social-grid {
+            display: flex;
+            gap: 6px;
+        }
+        .social-bubble {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #000000;
+            border: 1px solid #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+        .social-bubble:hover {
+            background-color: #ffffff;
+            color: #000000;
+            transform: scale(1.1);
+            box-shadow: 0 0 10px rgba(255,255,255,0.4);
+        }
+
+        /* BLOC CENTRAL : LE MENU INTERACTIF EN FRANÇAIS */
+        .nav-menu {
+            display: flex;
+            background: rgba(0,0,0,0.4);
+            padding: 6px;
+            border-radius: 12px;
+            border: 1px solid #222222;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.6);
+            z-index: 2;
+        }
+        .nav-item {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: uppercase;
+            padding: 8px 18px;
+            border-radius: 8px;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+        }
+        /* EFFET DE CHANGEMENT AU SURVOL SOLICITE */
+        .nav-item:hover {
+            background-color: #ffffff;
+            color: #000000;
+            box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+            transform: translateY(-1px);
+        }
+        .nav-item:active {
+            transform: translateY(1px);
+        }
+
+        /* BLOC DROITE : CONNECTIVITE / ESPACE MEMBRE */
+        .user-panel {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 2;
+        }
+        .notification-bell {
+            font-size: 18px;
+            color: #aaaaaa;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.2s ease;
+            position: relative;
+        }
+        .notification-bell:hover {
+            color: #00d2ff;
+            transform: rotate(15deg);
+        }
+        .user-profile-trigger {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            background: #111111;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid #333333;
+            transition: all 0.3s ease;
+        }
+        .user-profile-trigger:hover {
+            border-color: #00d2ff;
+            box-shadow: 0 0 10px rgba(0,210,255,0.2);
+        }
+        .profile-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #222222;
+            border: 1px solid #444444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888888;
+            font-size: 14px;
+        }
+        .fa-chevron-down {
+            font-size: 11px;
+            color: #aaaaaa;
+            transition: transform 0.3s ease;
+        }
+        .user-profile-trigger:hover .fa-chevron-down {
+            color: #00d2ff;
+            transform: translateY(2px);
+        }
+
+        /* DEFINITION DES ANIMATIONS */
+        @keyframes emerge {
+            0% {
+                opacity: 0;
+                transform: translateY(-15px) scale(0.95);
+                filter: blur(5px);
+            }
+            50% {
+                filter: blur(2px);
+                text-shadow: 0 0 20px rgba(255,255,255,0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        
+        <div class="logo-container">
+            <h1 class="brand-title">L'Empire Kai-Ji</h1>
+            <div class="social-grid">
+                <a href="#" class="social-bubble" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="social-bubble" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-bubble" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+                <a href="#" class="social-bubble" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-bubble" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="social-bubble" title="Snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+                <a href="#" class="social-bubble" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="social-bubble" title="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+            </div>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="#" class="nav-item">Accueil</a>
+            <a href="#" class="nav-item">À Propos</a>
+            <a href="#" class="nav-item">Conseils</a>
+            <a href="#" class="nav-item">Actualités</a>
+            <a href="#" class="nav-item">Contact</a>
+            <a href="#" class="nav-item">Faire un Don</a>
+            <a href="#" class="nav-item">Moteur Rotatif</a>
+            <a href="#" class="nav-item">Mes Abonnements</a>
+        </nav>
+
+        <div class="user-panel">
+            <div class="notification-bell" title="Notifications">
+                <i class="fas fa-bell"></i>
+            </div>
+            <div class="user-profile-trigger" title="Menu Utilisateur">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+
+    </header>
+
+</body>
+</html>
