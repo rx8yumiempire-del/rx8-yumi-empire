@@ -191,6 +191,31 @@
             color: #00d2ff;
             transform: translateY(2px);
         }
+        /* Effet néon clignotant */
+.neon-effect:hover {
+  animation: flicker 0.15s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* Le Logo Rotor */
+.rotor-logo {
+  width: 200px;
+  height: 200px;
+  background-image: url('ton_logo_rotor.png');
+  transform: rotate(90deg); /* Rotation validée */
+  transition: transform 0.3s;
+}
+
+/* Interaction Voiture (bruit futur) */
+.car-interactive:hover {
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px #00f);
+}
     </style>
 </head>
 <body>
