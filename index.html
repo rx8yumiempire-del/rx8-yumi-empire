@@ -304,158 +304,36 @@
     </header>
 
     
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panneau de Contrôle Kyo-Gen</title>
-    <style>
-        :root {
-            --neon-blue: #00AFFF;
-            --neon-bg: #0d1117;
-            --panel-bg: #161b22;
-        }
+<style>
+    /* On crée une section dédiée qui ne touche pas au header */
+    .sanctuaire-container {
+        display: flex;
+        width: 100%;
+        height: 600px; /* Ajuste cette valeur si tu veux plus ou moins grand */
+        margin-top: 20px; /* Petit espace sous ton menu */
+    }
 
-        * { box-sizing: border-box; }
+    .panneau-gauche {
+        width: 20%;
+        background-image: url('panneau de comtrole.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left top;
+    }
 
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #050505;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
+    .garage-droite {
+        width: 80%;
+        background-image: url('image garage ok.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: left top;
+    }
+</style>
 
-        /* Le conteneur du panneau (aux dimensions slide 1280x720) */
-        .control-panel {
-            width: 1280px;
-            height: 720px;
-            background: var(--panel-bg);
-            border: 2px solid #30363d;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            padding: 40px;
-            color: white;
-            box-shadow: 0 0 30px rgba(0, 175, 255, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .panel-header {
-            border-bottom: 2px solid var(--neon-blue);
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-        }
-
-        .panel-header h1 {
-            margin: 0;
-            color: var(--neon-blue);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
-        .grid-layout {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 40px;
-            flex-grow: 1;
-        }
-
-        .button-zone {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .kyg-button {
-            width: 120px;
-            height: 120px;
-            border: 2px solid var(--neon-blue);
-            background: transparent;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 175, 255, 0.3);
-        }
-
-        .kyg-button:hover {
-            background: var(--neon-blue);
-            box-shadow: 0 0 25px var(--neon-blue);
-            transform: scale(1.05);
-        }
-
-        .status-zone {
-            background: #0d1117;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #30363d;
-        }
-
-        .status-item {
-            margin-bottom: 20px;
-        }
-
-        .status-label { font-size: 14px; color: #8b949e; }
-        .status-value { font-size: 20px; color: #fff; font-family: monospace; }
-        
-        .indicator {
-            height: 10px;
-            width: 100%;
-            background: #21262d;
-            margin-top: 5px;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            background: var(--neon-blue);
-            width: 70%;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="control-panel">
-        <div class="panel-header">
-            <h1>Panneau de Contrôle - Module 01</h1>
-        </div>
-        
-        <div class="grid-layout">
-            <div class="main-zone">
-                <div class="button-zone">
-                    <button class="kyg-button" onclick="alert('Module K activé')">K</button>
-                    <button class="kyg-button" onclick="alert('Module Y activé')">Y</button>
-                    <button class="kyg-button" onclick="alert('Module G activé')">G</button>
-                </div>
-            </div>
-
-            <div class="status-zone">
-                <div class="status-item">
-                    <div class="status-label">DIAGNOSTIC MOTEUR</div>
-                    <div class="status-value">NOMINAL</div>
-                    <div class="indicator"><div class="progress" style="width: 85%;"></div></div>
-                </div>
-                <div class="status-item">
-                    <div class="status-label">PRESSION D'HUILE</div>
-                    <div class="status-value">4.2 BAR</div>
-                    <div class="indicator"><div class="progress" style="width: 45%;"></div></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
-```eof
-
+<div class="sanctuaire-container">
+    <div class="panneau-gauche"></div>
+    <div class="garage-droite"></div>
+</div>
 </div>
 
 
