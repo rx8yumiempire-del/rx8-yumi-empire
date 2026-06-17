@@ -304,170 +304,157 @@
     </header>
 
     
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panneau de Contrôle Kyo-Gen</title>
+    <style>
+        :root {
+            --neon-blue: #00AFFF;
+            --neon-bg: #0d1117;
+            --panel-bg: #161b22;
+        }
 
+        * { box-sizing: border-box; }
 
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #050505;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
 
-.scene-container{
-    position:relative;
-    width:100%;
-    max-width:1600px;
-}
+        /* Le conteneur du panneau (aux dimensions slide 1280x720) */
+        .control-panel {
+            width: 1280px;
+            height: 720px;
+            background: var(--panel-bg);
+            border: 2px solid #30363d;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            color: white;
+            box-shadow: 0 0 30px rgba(0, 175, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
 
-.scene-container img{
-    width:100%;
-    display:block;
-}
+        .panel-header {
+            border-bottom: 2px solid var(--neon-blue);
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+        }
 
-/* STYLE COMMUN À TOUTES LES ZONES */
-.click-zone{
-    position:absolute;
-    cursor:pointer;
-    border:2px solid transparent;
-    transition:all .25s ease;
-}
+        .panel-header h1 {
+            margin: 0;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
 
-/* EFFET AU SURVOL */
-.click-zone:hover{
-    border:2px solid #00FFFF;
-    box-shadow:
-        0 0 8px #00FFFF,
-        0 0 16px #00FFFF,
-        0 0 24px #00FFFF;
-    background:rgba(0,255,255,0.08);
-}
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+            flex-grow: 1;
+        }
 
-/* ========================= */
-/* 1 - ÉCLAIR SERVICE */
-/* ========================= */
-.zone-service{
-    top:8%;
-    left:2%;
-    width:10%;
-    height:14%;
-}
+        .button-zone {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
 
-/* ========================= */
-/* 2 - YOUR BRAND HERE */
-/* ========================= */
-.zone-brand{
-    top:30%;
-    left:3%;
-    width:11%;
-    height:26%;
-}
+        .kyg-button {
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--neon-blue);
+            background: transparent;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 175, 255, 0.3);
+        }
 
-/* ========================= */
-/* 3 - BOUTON PLAY */
-/* ========================= */
-.zone-play{
-    top:16%;
-    left:26%;
-    width:3%;
-    height:6%;
-}
+        .kyg-button:hover {
+            background: var(--neon-blue);
+            box-shadow: 0 0 25px var(--neon-blue);
+            transform: scale(1.05);
+        }
 
-/* ========================= */
-/* 4 - GRAND ÉCRAN CENTRAL */
-/* ========================= */
-.zone-screen{
-    top:28%;
-    left:18%;
-    width:27%;
-    height:26%;
-}
+        .status-zone {
+            background: #0d1117;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+        }
 
-/* ========================= */
-/* 5 - NÉON VERTICAL */
-/* ========================= */
-.zone-neon{
-    top:24%;
-    left:53%;
-    width:8%;
-    height:30%;
-}
+        .status-item {
+            margin-bottom: 20px;
+        }
 
-/* ========================= */
-/* 6 - MAZDA RX8 */
-/* ========================= */
-.zone-rx8{
-    top:48%;
-    left:31%;
-    width:48%;
-    height:28%;
-}
+        .status-label { font-size: 14px; color: #8b949e; }
+        .status-value { font-size: 20px; color: #fff; font-family: monospace; }
+        
+        .indicator {
+            height: 10px;
+            width: 100%;
+            background: #21262d;
+            margin-top: 5px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
 
-/* ========================= */
-/* 7 - PORTE DE GARAGE */
-/* ========================= */
-.zone-door{
-    top:22%;
-    left:68%;
-    width:18%;
-    height:34%;
-}
-
-/* ========================= */
-/* 8 - PETIT BOUTON ROUGE */
-/* ========================= */
-.zone-red-button{
-    top:44%;
-    left:84%;
-    width:2.5%;
-    height:4%;
-}
-
-/* ========================= */
-/* 9 - CONSEIL DU SAGE */
-/* ========================= */
-.zone-conseil{
-    top:28%;
-    left:88%;
-    width:10%;
-    height:30%;
-}
-}
-</style>
+        .progress {
+            height: 100%;
+            background: var(--neon-blue);
+            width: 70%;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="scene-container">
+    <div class="control-panel">
+        <div class="panel-header">
+            <h1>Panneau de Contrôle - Module 01</h1>
+        </div>
+        
+        <div class="grid-layout">
+            <div class="main-zone">
+                <div class="button-zone">
+                    <button class="kyg-button" onclick="alert('Module K activé')">K</button>
+                    <button class="kyg-button" onclick="alert('Module Y activé')">Y</button>
+                    <button class="kyg-button" onclick="alert('Module G activé')">G</button>
+                </div>
+            </div>
 
-    <!-- IMAGE -->
-    <img src="garage.jpg.png" alt="Mazda RX8 Cyberpunk">
+            <div class="status-zone">
+                <div class="status-item">
+                    <div class="status-label">DIAGNOSTIC MOTEUR</div>
+                    <div class="status-value">NOMINAL</div>
+                    <div class="indicator"><div class="progress" style="width: 85%;"></div></div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">PRESSION D'HUILE</div>
+                    <div class="status-value">4.2 BAR</div>
+                    <div class="indicator"><div class="progress" style="width: 45%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- 1 -->
-    <div class="click-zone zone-service"></div>
-
-    <!-- 2 -->
-    <div class="click-zone zone-brand"></div>
-
-    <!-- 3 -->
-    <div class="click-zone zone-play"></div>
-
-    <!-- 4 -->
-    <div class="click-zone zone-screen"></div>
-
-    <!-- 5 -->
-    <div class="click-zone zone-neon"></div>
-
-    <!-- 6 -->
-    <div class="click-zone zone-rx8"></div>
-
-    <!-- 7 -->
-    <div class="click-zone zone-door"></div>
-
-    <!-- 8 -->
-    <div class="click-zone zone-red-button"></div>
-
-    <!-- 9 -->
-    <div class="click-zone zone-conseil"></div>
+</body>
+</html>
+```eof
 
 </div>
 
