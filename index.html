@@ -303,33 +303,26 @@
 
     </header>
 <style>
-    .zone-sanctuaire {
-        display: flex;
+    /* Conteneur du panneau de contrôle uniquement */
+    .panneau-seul-container {
         width: 100%;
-        height: 600px;
-        background-color: #000; /* Fond noir pour masquer le vide autour de l'image */
+        height: 600px; /* On garde la hauteur pour voir le rendu */
+        display: flex;
+        justify-content: flex-start; /* On le colle à gauche */
     }
 
     .panneau-controle {
-        width: 25%;
+        width: 25%; /* C'est la base qu'on a validée */
         background-image: url('panneau de comtrole.jpg');
-        background-size: contain; /* L'image est affichée en entier sans être rognée */
+        background-size: contain; /* On garde tout le visuel */
         background-position: center;
         background-repeat: no-repeat;
-    }
-
-    .zone-garage-vide {
-        width: 75%;
-        background-image: url('image garage ok.jpg');
-        background-size: contain; /* L'image est affichée en entier sans être rognée */
-        background-position: center;
-        background-repeat: no-repeat;
+        background-color: #000;
     }
 </style>
 
-<div class="zone-sanctuaire">
+<div class="panneau-seul-container">
     <div class="panneau-controle"></div>
-    <div class="zone-garage-vide"></div>
 </div>
 
 </body>
