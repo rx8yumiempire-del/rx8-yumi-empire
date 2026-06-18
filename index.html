@@ -305,35 +305,38 @@
 
     
 <style>
-    /* On crée une section dédiée qui ne touche pas au header */
-    .sanctuaire-container {
+    /* Section qui contient tout le bloc sous le menu */
+    .zone-sanctuaire {
         display: flex;
         width: 100%;
-        height: 600px; /* Ajuste cette valeur si tu veux plus ou moins grand */
-        margin-top: 20px; /* Petit espace sous ton menu */
+        height: 75vh; /* Ajuste la hauteur pour qu'il prenne bien tout l'espace sous le menu */
+        margin-top: 10px;
     }
 
-    .panneau-gauche {
-        width: 20%;
+    /* Le panneau de contrôle : 25% de largeur, aligné à gauche */
+    .panneau-controle {
+        width: 25%;
         background-image: url('panneau de comtrole.jpg');
-        background-size: contain;
+        background-size: cover; /* Remplit tout l'espace */
+        background-position: center;
         background-repeat: no-repeat;
-        background-position: left top;
+        position: relative;
     }
 
-    .garage-droite {
-        width: 80%;
-        background-image: url('image garage ok.jpg');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: left top;
+    /* Zone de droite, vide pour l'instant */
+    .zone-garage-vide {
+        width: 75%;
     }
 </style>
 
-<div class="sanctuaire-container">
-    <div class="panneau-gauche"></div>
-    <div class="garage-droite"></div>
-</div>
+<div class="zone-sanctuaire">
+    <!-- Panneau de contrôle -->
+    <div class="panneau-controle" id="panneau">
+        <!-- Ici, on ajoutera les zones cliquables (K, Y, G, Play, Conseil) -->
+    </div>
+    
+    <!-- Zone garage qui attendra la prochaine étape -->
+    <div class="zone-garage-vide"></div>
 </div>
 
 
