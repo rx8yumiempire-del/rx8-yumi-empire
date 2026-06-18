@@ -304,35 +304,37 @@
     </header>
 
   <style>
-    /* On vire les marges forcées */
-    .main-container {
+    /* La zone sanctuaire s'aligne sur la largeur totale (100%) */
+    .zone-sanctuaire {
         display: flex;
         width: 100%;
-        /* Hauteur automatique pour ne pas déborder sous le header */
-        height: 80vh; 
-        margin-top: 10px;
+        height: 80vh; /* Ajuste selon ton besoin */
+        background-color: #000;
     }
 
-    .panel-left {
-        width: 40%;
+    /* Le panneau de contrôle : 25% fixe, pas de compression */
+    .panneau-controle {
+        flex: 0 0 25%;
         background-image: url('panneau de comtrole.jpg');
-        background-size: contain; /* On passe en contain pour ne pas couper ton image */
+        background-size: 100% 100%;
+        background-position: center;
         background-repeat: no-repeat;
     }
 
-    .garage-right {
-        width: 130%;
+    /* Le garage : 75% fixe, remplit tout le reste */
+    .zone-garage-vide {
+        flex: 1;
         background-image: url('image garage ok.jpg');
-        background-size: contain;
+        background-size: 100% 100%;
+        background-position: center;
         background-repeat: no-repeat;
     }
 </style>
 
-<div class="main-container">
-    <div class="panel-left"></div>
-    <div class="garage-right"></div>
+<div class="zone-sanctuaire">
+    <div class="panneau-controle"></div>
+    <div class="zone-garage-vide"></div>
 </div>
-
 
 </body>
 </html>
