@@ -303,31 +303,29 @@
 
     </header>
 
-    
-<style>
-    /* Reset total */
-    body { margin: 0; padding: 0; background: #000; overflow: hidden; }
-
-    /* On force une hauteur fixe pour tout le bloc sous ton menu */
+    <style>
+    /* On définit la zone qui contient les deux images */
     .zone-sanctuaire {
         display: flex;
-        width: 100vw;
-        height: 80vh;
+        width: 100%;
+        height: 85vh; /* Prend 85% de la hauteur de ton écran */
+        margin: 0;
+        padding: 0;
     }
 
-    /* Panneau gauche : Fixe, pas de calculs chelous */
+    /* Le panneau de contrôle : 25% de la largeur totale */
     .panneau-controle {
-        flex: 0 0 300px; /* 300px fixe, ça ne bougera plus */
+        width: 25%;
         background-image: url('panneau de comtrole.jpg');
-        background-size: 100% 100%; /* On force à prendre tout le bloc */
+        background-size: 100% 100%; /* Force l'image à remplir le bloc à 25% */
         background-repeat: no-repeat;
     }
 
-    /* Garage droite : Prend tout le reste */
+    /* Le garage : 75% de la largeur totale */
     .zone-garage-vide {
-        flex: 1; /* Il prend tout l'espace restant à droite */
+        width: 75%;
         background-image: url('image garage ok.jpg');
-        background-size: 80% 80%; /* On étire pour remplir tout le rectangle */
+        background-size: 100% 100%; /* Force l'image à remplir le bloc à 75% */
         background-repeat: no-repeat;
     }
 </style>
@@ -336,6 +334,7 @@
     <div class="panneau-controle"></div>
     <div class="zone-garage-vide"></div>
 </div>
+
 
 </body>
 </html>
