@@ -302,30 +302,28 @@
         </div>
 
     </header>
-
-  <style>
-    /* La zone sanctuaire s'aligne sur la largeur totale (100%) */
+<style>
+    /* Zone sanctuaire : prend 100% de la largeur du parent */
     .zone-sanctuaire {
         display: flex;
         width: 100%;
-        height: 80vh; /* Ajuste selon ton besoin */
-        background-color: #000;
+        height: 600px; 
     }
 
-    /* Le panneau de contrôle : 25% fixe, pas de compression */
+    /* Panneau : 25% de la largeur du header */
     .panneau-controle {
-        flex: 0 0 25%;
+        width: 25%;
         background-image: url('panneau de comtrole.jpg');
-        background-size: 100% 100%;
+        background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
     }
 
-    /* Le garage : 75% fixe, remplit tout le reste */
+    /* Garage : 75% de la largeur du header */
     .zone-garage-vide {
-        flex: 1;
-        background-image: url('garage oui.png');
-        background-size: 100% 100%;
+        width: 75%;
+        background-image: url('image garage ok.jpg');
+        background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
     }
@@ -335,6 +333,7 @@
     <div class="panneau-controle"></div>
     <div class="zone-garage-vide"></div>
 </div>
+
 
 </body>
 </html>
