@@ -337,12 +337,11 @@
     
     <!-- Zone garage qui attendra la prochaine étape -->
     <div class="zone-garage-vide"></div>
-    {
-        width: 75%;
-        background-image: url('image garage ok.jpg'); /* Assure-toi que le nom est exact */
-        background-size: cover; /* L'image remplit tout le bloc sans déformation */
-        background-position: center;
+   flex: 1; /* C'est magique : ça dit au navigateur "prends tout l'espace restant" */
+        background-image: url('image garage ok.jpg');
+        background-size: contain; /* On reste sur contain pour voir l'image en entier */
         background-repeat: no-repeat;
+        background-position: center;
     }
 </div>
 
