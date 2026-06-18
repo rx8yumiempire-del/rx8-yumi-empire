@@ -303,36 +303,34 @@
 
     </header>
 
-    <style>
-    /* On définit la zone qui contient les deux images */
-    .zone-sanctuaire {
+  <style>
+    /* On vire les marges forcées */
+    .main-container {
         display: flex;
         width: 100%;
-        height: 85vh; /* Prend 85% de la hauteur de ton écran */
-        margin: 0;
-        padding: 0;
+        /* Hauteur automatique pour ne pas déborder sous le header */
+        height: 70vh; 
+        margin-top: 10px;
     }
 
-    /* Le panneau de contrôle : 25% de la largeur totale */
-    .panneau-controle {
-        width: 25%;
+    .panel-left {
+        width: 20%;
         background-image: url('panneau de comtrole.jpg');
-        background-size: 100% 100%; /* Force l'image à remplir le bloc à 25% */
+        background-size: contain; /* On passe en contain pour ne pas couper ton image */
         background-repeat: no-repeat;
     }
 
-    /* Le garage : 75% de la largeur totale */
-    .zone-garage-vide {
-        width: 75%;
-        background-image: url('image garage ok.jpg');
-        background-size: 100% 100%; /* Force l'image à remplir le bloc à 75% */
+    .garage-right {
+        width: 80%;
+        background-image: url('garage oui.png');
+        background-size: contain;
         background-repeat: no-repeat;
     }
 </style>
 
-<div class="zone-sanctuaire">
-    <div class="panneau-controle"></div>
-    <div class="zone-garage-vide"></div>
+<div class="main-container">
+    <div class="panel-left"></div>
+    <div class="garage-right"></div>
 </div>
 
 
