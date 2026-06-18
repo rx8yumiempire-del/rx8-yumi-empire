@@ -305,30 +305,29 @@
 
     
 <style>
-    /* Reset pour éviter les marges qui décalent tout */
-    body { margin: 0; padding: 0; background: #000; }
+    /* Reset total */
+    body { margin: 0; padding: 0; background: #000; overflow: hidden; }
 
-    /* Grille : on définit deux colonnes fixes */
+    /* On force une hauteur fixe pour tout le bloc sous ton menu */
     .zone-sanctuaire {
-        display: grid;
-        grid-template-columns: 300px 1fr; /* 300px pour le panneau, tout le reste pour le garage */
-        height: 80vh;
+        display: flex;
         width: 100vw;
+        height: 80vh;
     }
 
-    /* Ton panneau, il ne bougera plus */
+    /* Panneau gauche : Fixe, pas de calculs chelous */
     .panneau-controle {
+        flex: 0 0 300px; /* 300px fixe, ça ne bougera plus */
         background-image: url('panneau de comtrole.jpg');
-        background-size: contain;
-        background-position: center;
+        background-size: 100% 100%; /* On force à prendre tout le bloc */
         background-repeat: no-repeat;
     }
 
-    /* Le garage : occupe tout l'espace restant (1fr) */
+    /* Garage droite : Prend tout le reste */
     .zone-garage-vide {
+        flex: 1; /* Il prend tout l'espace restant à droite */
         background-image: url('image garage ok.jpg');
-        background-size: contain; /* On reste sur contain pour voir tout le garage */
-        background-position: center;
+        background-size: 100% 100%; /* On étire pour remplir tout le rectangle */
         background-repeat: no-repeat;
     }
 </style>
@@ -337,7 +336,6 @@
     <div class="panneau-controle"></div>
     <div class="zone-garage-vide"></div>
 </div>
-
 
 </body>
 </html>
